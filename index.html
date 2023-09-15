@@ -1,0 +1,125 @@
+    </div>
+    <script>
+      let Start = confirm("First Team to Reach ten Points Wins.Good Luck!");
+
+      function GameOn() {
+        if (Start) {
+        } else {
+          alert("Thank You Come Again");
+          window.close();
+        }
+      }
+      GameOn();
+      // Variables
+      const PlayerInput = document.querySelector("#playerText");
+      const computerInput = document.querySelector("#computerText");
+      const resultInput = document.querySelector("#resultText");
+      const TotalInput = document.querySelector("#YourScore");
+      const ComputerScore = document.querySelector("#computerScore");
+      const choiceBtn$ = document.querySelectorAll(".choiceBtn");
+      let player;
+      let computer;
+      let result;
+      let count = 0;
+      let count2 = 0;
+      choiceBtn$.forEach((button) =>
+        button.addEventListener("click", () => {
+          player = button.textContent;
+          computerTurn();
+          PlayerInput.textContent = `Player:${player}`;
+          computerInput.textContent = `Computer:${computer}`;
+          resultInput.textContent = `Result:${checkTheWinner()}`;
+          TotalInput.textContent = `Your Score:${TotalCount()}`;
+          ComputerScore.textContent = `Computer Score:${ComputerCount()}`;
+          WhoWins();
+          Color();
+        })
+      );
+
+      function computerTurn() {
+        let Random = Math.floor(Math.random() * 3) + 1;
+        switch (Random) {
+          case 1:
+            return (computer = "ROCK");
+            break;
+          case 2:
+            return (computer = "PAPER");
+            break;
+          case 3:
+            return (computer = "SCISSORS");
+            break;
+        }
+      }
+      function checkTheWinner() {
+        if (player == computer) {
+          return "Draw Game";
+        } else if (player == "ROCK") {
+          return computer == "SCISSORS" ? "You Win" : "You Lose";
+        } else if (player == "PAPER") {
+          return computer == "ROCK" ? "You Win" : "You Lose";
+        } else if (player == "SCISSORS") {
+          return computer == "PAPER" ? "You Win" : "You Lose";
+        }
+      }
+      function TotalCount() {
+        if (checkTheWinner() == "You Win") {
+          for (let i = 1; i < 10; i++) {
+            return (count += 1);
+          }
+        } else if (checkTheWinner() == "You Lose") {
+          for (let i = 1; i < 10; i++) {
+            return count;
+          }
+        } else if (checkTheWinner() == "Draw Game") {
+          for (let i = 1; i < 10; i++) {
+            return count;
+          }
+        }
+      }
+      function ComputerCount() {
+        if (checkTheWinner() == "You Lose") {
+          for (let i = 1; i < 10; i++) {
+            return (count2 += 1);
+          }
+        } else if (checkTheWinner() == "You Win") {
+          for (let i = 1; i < 10; i++) {
+            return count2;
+          }
+        } else if (checkTheWinner() == "Draw Game") {
+          for (let i = 1; i < 10; i++) {
+            return count2;
+          }
+        }
+      }
+      function WhoWins() {
+        setTimeout(() => {
+          if (count == 10) {
+            let Result = alert("Congrats You Win");
+          } else if (count2 == 10) {
+            let Result = alert("Computer Win");
+          }
+          if (count == 10 || count2 == 10) {
+            {
+              return (count = 0)((count2 = 0));
+            }
+          }
+        }, 1000);
+      }
+
+      const Color = () => {
+        if (checkTheWinner() == "You Win") {
+          resultInput.style.color = "greenyellow";
+        } else if (checkTheWinner() == "You Lose") {
+          resultInput.style.color = "darkred";
+        } else if (checkTheWinner() == "Draw Game") {
+          resultInput.style.color = "wheat";
+        }
+      };
+    </script>
+  </body>
+</html>
+<!-- if (count == 10 || count2 == 10) {
+            {
+              return (count = 0)((count2 = 0));
+            }
+          } -->
