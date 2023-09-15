@@ -13,6 +13,18 @@
       body {
         background-color: #2ab7ca;
       }
+      header {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        margin: auto;
+        padding: 1rem;
+        text-align: center;
+        background-color: #0f0326;
+        display: flex;
+        justify-content: space-evenly;
+      }
       h2 {
         margin-top: 1.2rem;
         text-align: center;
@@ -148,7 +160,7 @@
           gap: 0.2rem;
         }
         .choiceBtn {
-          margin-top: 2rem;
+          margin-top: 1rem;
           transition: 2s ease-out;
         }
         .choiceBtn:hover {
@@ -173,13 +185,15 @@
         footer h2 {
           font-size: 1.3rem;
           margin: auto;
-          gap: 3rem;
+          gap: 1rem;
         }
       }
     </style>
   </head>
   <body>
-    <h2>Rock-Paper-Scissors Game</h2>
+    <header>
+      <h2>Rock-Paper-Scissors Game</h2>
+    </header>
     <div class="GameDiv">
       <h1 class="gameText" id="playerText">Player:</h1>
       <h1 class="gameText" id="computerText">Computer:</h1>
@@ -199,7 +213,7 @@
       </footer>
     </div>
     <script>
-      let Start = confirm("First Team to Reach ten Points Wins.Good Luck!");
+      // let Start = confirm("First Team to Reach ten Points Wins.Good Luck!");
 
       function GameOn() {
         if (Start) {
