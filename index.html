@@ -1,3 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #2ab7ca;
+      }
+      h2 {
+        margin-top: 1.2rem;
+        text-align: center;
+        font-size: 2rem;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        font-weight: 800;
+        color: rebeccapurple;
+      }
+      .GameDiv {
+        font-family: "Courier New", Courier, monospace;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        background-color: gray;
+        width: 600px;
+        border: 4px groove black;
+        border-radius: 20px;
+        /* clip-path: polygon(
+          50% 0%,
+          61% 35%,
+          98% 35%,
+          68% 57%,
+          79% 91%,
+          50% 70%,
+          21% 91%,
+          32% 57%,
+          2% 35%,
+          39% 35%
+        ); */
+        clip-path: circle(50%);
+        margin: auto;
+        padding: 1rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: 2s ease-in;
+      }
+      /* .GameDiv:hover {
+        clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
+      } */
+      .gameText {
+        padding: 10px;
+      }
+      .gameText:nth-child(1) {
+        color: rgb(166, 209, 216);
+      }
+      .gameText:nth-child(2) {
+        color: rgb(196, 172, 13);
+      }
+      .button {
+        display: flex;
+        gap: 1rem;
+      }
+      .choiceBtn {
+        margin-top: 6rem;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-weight: 800;
+        font-size: 1.2rem;
+        background-color: rgb(56, 4, 108);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 30px;
+        border: none;
+        border-radius: 12px;
+        color: aliceblue;
+        cursor: pointer;
+        transition: 2s ease-out;
+      }
+      .choiceBtn:hover {
+        background: red;
+        color: white;
+      }
+      .choiceBtn:active {
+        background-color: green;
+      }
+      .footer-parent {
+      }
+      footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #0f0326;
+        height: 10vh;
+        display: flex;
+        justify-content: space-evenly;
+      }
+      h2 {
+        display: flex;
+        margin: auto;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      @media screen and (max-width: 580px) {
+        * {
+          overflow: hidden;
+        }
+        h2 {
+          margin-top: 2rem;
+          text-align: center;
+          font-size: 1.8rem;
+          color: #e65f5c;
+        }
+        .GameDiv {
+          clip-path: polygon(
+            50% 0%,
+            61% 35%,
+            98% 35%,
+            68% 57%,
+            79% 91%,
+            50% 70%,
+            21% 91%,
+            32% 57%,
+            2% 35%,
+            39% 35%
+          );
+          width: fit-content;
+          transition: 2s ease-in;
+        }
+        .GameDiv:hover {
+          clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 0);
+        }
+        .gameText {
+          padding: 10px;
+        }
+
+        .button {
+          display: flex;
+          gap: 0.2rem;
+        }
+        .choiceBtn {
+          margin-top: 2rem;
+          transition: 2s ease-out;
+        }
+        .choiceBtn:hover {
+          background: red;
+          color: white;
+        }
+        .choiceBtn:active {
+          background-color: green;
+        }
+        .footer-parent {
+        }
+        footer {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-color: #0f0326;
+          height: 15vh;
+          display: flex;
+          flex-direction: column;
+        }
+        footer h2 {
+          font-size: 1.3rem;
+          margin: auto;
+          gap: 3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Rock-Paper-Scissors Game</h2>
+    <div class="GameDiv">
+      <h1 class="gameText" id="playerText">Player:</h1>
+      <h1 class="gameText" id="computerText">Computer:</h1>
+      <h1 class="gameText" id="resultText">Result:</h1>
+      <h1 class="gameText" id="YourScore">Your Score:</h1>
+      <h1 class="gameText" id="computerScore">Computer Score:</h1>
+      <div class="button">
+        <button class="choiceBtn">ROCK</button>
+        <button class="choiceBtn">PAPER</button>
+        <button class="choiceBtn">SCISSORS</button>
+      </div>
+    </div>
+    <div class="footer-parent">
+      <footer>
+        <h2>Rock-Paper-Scissors Game</h2>
+        <h2>©2023-Sarwan Terms · Privacy</h2>
+      </footer>
     </div>
     <script>
       let Start = confirm("First Team to Reach ten Points Wins.Good Luck!");
